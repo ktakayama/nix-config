@@ -1,0 +1,120 @@
+{ pkgs, ... }:
+#{ config, pkgs, ... }:
+
+{
+  home.username = "takayama";
+  home.enableNixpkgsReleaseCheck = false;
+
+  # This value determines the Home Manager release that your configuration is
+  # compatible with. This helps avoid breakage when a new Home Manager release
+  # introduces backwards incompatible changes.
+  #
+  # You should not change this value, even if you update Home Manager. If you do
+  # want to update the value, then make sure to first check the Home Manager
+  # release notes.
+  home.stateVersion = "25.11"; # Please read the comment before changing.
+
+  # The home.packages option allows you to install Nix packages into your
+  # environment.
+  home.packages = with pkgs; [
+    # cli basic tools
+    lsd
+    fd
+    bat
+    jq
+    ripgrep
+    tree
+    fzf
+    lv
+    tmux
+    wget
+    colordiff
+    coreutils-prefixed # # gmv, ghead, etc...
+
+    # shell integrations
+    zsh-completions
+    # zoxide # zからの乗り換え候補
+
+    ## 利用頻度低そう
+    #yazi
+
+    # development
+    #neovim # Rubyなどのproviderが有効化できず
+    terraform-ls
+
+    ## for git
+    delta
+    gh
+    git-secrets
+    gitleaks
+    ghq
+    gnupg
+
+    # others
+    rustup
+    mise
+    cmigemo
+    efm-langserver
+
+    # nix
+    nixfmt
+    nixd
+    nix-sweep
+
+    # package search
+    # nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history
+    # https://search.nixos.org/packages
+    nix-search-tv
+  ];
+
+  # Home Manager is pretty good at managing dotfiles. The primary way to manage
+  # plain files is through 'home.file'.
+  home.file = {
+    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
+    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
+    # # symlink to the Nix store copy.
+    # ".screenrc".source = dotfiles/screenrc;
+
+    # # You can also set the file content immediately.
+    # ".gradle/gradle.properties".text = ''
+    #   org.gradle.console=verbose
+    #   org.gradle.daemon.idletimeout=3600000
+    # '';
+  };
+
+  # Home Manager can also manage your environment variables through
+  # 'home.sessionVariables'. These will be explicitly sourced when using a
+  # shell provided by Home Manager. If you don't want to manage your shell
+  # through Home Manager then you have to manually source 'hm-session-vars.sh'
+  # located at either
+  #
+  #  ~/.nix-profile/etc/profile.d/hm-session-vars.sh
+  #
+  # or
+  #
+  #  ~/.local/state/nix/profiles/profile/etc/profile.d/hm-session-vars.sh
+  #
+  # or
+  #
+  #  /etc/profiles/per-user/takayama/etc/profile.d/hm-session-vars.sh
+  #
+  home.sessionVariables = {
+    # EDITOR = "emacs";
+  };
+
+  # direnv + nix-direnv
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+    #enableZshIntegration = true;
+  };
+
+  # nix-index + comma (prebuilt weekly database)
+  programs.nix-index = {
+    enable = true;
+  };
+  programs.nix-index-database.comma.enable = true;
+
+  # Let Home Manager install and manage itself.
+  programs.home-manager.enable = true;
+}
