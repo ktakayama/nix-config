@@ -43,6 +43,7 @@
     terraform-ls
 
     ## for git
+    tig
     delta
     gh
     git-secrets
