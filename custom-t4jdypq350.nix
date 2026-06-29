@@ -1,8 +1,8 @@
 { pkgs, ... }:
 
 {
-   home.packages = with pkgs; [
-      awsume
-      git-lfs
-   ];
+  home.packages = with pkgs; [
+    awsume
+    git-lfs
+  ];
 }
