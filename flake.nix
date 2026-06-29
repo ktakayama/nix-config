@@ -91,7 +91,7 @@
 
         # T4JDYPQ350
         "takayama@T4JDYPQ350" = mkHome {
-          system = "aarch64-darwin";
+          system = darwinSystem;
           extraModules = [
             ./custom-osx.nix
             ./custom-t4jdypq350.nix
@@ -100,7 +100,7 @@
 
         # フォールバック
         "takayama" = mkHome {
-          system = "aarch64-darwin";
+          system = darwinSystem;
           extraModules = [
             ./custom-osx.nix
             ./custom-hawk.nix
