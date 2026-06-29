@@ -35,13 +35,6 @@
     zsh-completions
     # zoxide # zからの乗り換え候補
 
-    ## 利用頻度低そう
-    #yazi
-
-    # development
-    #neovim # Rubyなどのproviderが有効化できず
-    terraform-ls
-
     ## for git
     tig
     delta
@@ -52,7 +45,6 @@
     gnupg
 
     # others
-    rustup
     mise
     cmigemo
     efm-langserver

@@ -11,6 +11,8 @@
     # development
     swiftlint
     fvm
+    rustup
+    terraform-ls
 
     # macos
     reattach-to-user-namespace
