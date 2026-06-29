@@ -18,6 +18,11 @@
       url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    git-hooks-nix = {
+      url = "github:cachix/git-hooks.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -27,11 +32,27 @@
       home-manager,
       nix-darwin,
       nix-index-database,
+      git-hooks-nix,
       ...
     }:
     let
       username = "takayama";
       darwinHomedir = "/Users/${username}";
+      darwinSystem = "aarch64-darwin";
+      checkPkgs = nixpkgs.legacyPackages.${darwinSystem};
+
+      pre-commit-check = git-hooks-nix.lib.${darwinSystem}.run {
+        src = ./.;
+        hooks = {
+          gitleaks = {
+            enable = true;
+            name = "gitleaks";
+            entry = "${checkPkgs.gitleaks}/bin/gitleaks git --pre-commit --redact --staged --verbose";
+            pass_filenames = false;
+          };
+          nixfmt-rfc-style.enable = true;
+        };
+      };
 
       mkHome =
         { system, extraModules }:
@@ -90,6 +111,13 @@
       darwinConfigurations = {
         T4JDYPQ350 = mkDarwin;
         hawk = mkDarwin;
+      };
+
+      checks.${darwinSystem}.pre-commit-check = pre-commit-check;
+
+      devShells.${darwinSystem}.default = checkPkgs.mkShell {
+        inherit (pre-commit-check) shellHook;
+        buildInputs = pre-commit-check.enabledPackages;
       };
     };
 }
