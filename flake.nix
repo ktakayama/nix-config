@@ -111,6 +111,7 @@
       darwinConfigurations = {
         T4JDYPQ350 = mkDarwin;
         hawk = mkDarwin;
+        raven = mkDarwin;
       };
 
       checks.${darwinSystem}.pre-commit-check = pre-commit-check;
