@@ -48,6 +48,7 @@
     mise
     cmigemo
     efm-langserver
+    tirith
 
     # nix
     nixfmt
