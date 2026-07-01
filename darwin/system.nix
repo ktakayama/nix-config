@@ -77,4 +77,9 @@
       showDesktopGestureEnabled = true; # Whether to enable four-finger spread gesture to show the Desktop. The default is false.
     };
   };
+
+  system.keyboard = {
+    enableKeyMapping = true; # リマップ
+    remapCapsLockToControl = true; # Caps Lock → Control
+  };
 }
