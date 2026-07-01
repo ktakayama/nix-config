@@ -58,6 +58,10 @@
 
     # Dock
     dock = {
+      persistent-apps = [
+        { app = "/System/Applications/iPhone Mirroring.app"; }
+      ];
+
       "wvous-br-corner" = 4; # ホットコーナー右下 = デスクトップ
       mru-spaces = false; # 操作スペースの自動並べ替え
       expose-group-apps = true; # ウインドウをアプリごとにグループ化
