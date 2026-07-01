@@ -28,6 +28,8 @@
       # キーボード
       KeyRepeat = 2; # キーのリピート速度
       InitialKeyRepeat = 25; # リピート入力認識までの時間
+      NSAutomaticCapitalizationEnabled = false; # 文頭の自動大文字化オフ
+      NSAutomaticPeriodSubstitutionEnabled = false; # ダブルスペースでピリオド、をオフ
     };
 
     # トラックパッド タップでクリック
