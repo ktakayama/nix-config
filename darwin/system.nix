@@ -61,6 +61,7 @@
     # Dock
     dock = {
       persistent-apps = [
+        { app = "/System/Applications/System Settings.app"; }
         { app = "/System/Applications/iPhone Mirroring.app"; }
       ];
 
