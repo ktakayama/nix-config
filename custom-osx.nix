@@ -23,7 +23,7 @@ in
 
     # macos
     reattach-to-user-namespace
-    terminal-notifier
+    pkgs-pinned.terminal-notifier
     nerd-fonts.inconsolata
   ];
 }
