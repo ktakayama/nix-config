@@ -43,6 +43,7 @@
     gitleaks
     ghq
     gnupg
+    lefthook
 
     # others
     mise
