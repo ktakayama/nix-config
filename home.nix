@@ -50,6 +50,7 @@
     cmigemo
     efm-langserver
     tirith
+    herdr
 
     # nix
     nixfmt
