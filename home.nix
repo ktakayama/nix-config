@@ -45,10 +45,6 @@
     gnupg
     lefthook
 
-    ## for herdr
-    herdr
-    zig
-
     # others
     mise
     cmigemo
