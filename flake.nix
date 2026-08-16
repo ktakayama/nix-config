@@ -23,6 +23,11 @@
       url = "github:cachix/git-hooks.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    ax = {
+      url = "github:yusukebe/ax";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
@@ -33,6 +38,7 @@
       nix-darwin,
       nix-index-database,
       git-hooks-nix,
+      ax,
       ...
     }:
     let
@@ -61,6 +67,7 @@
         in
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
+          extraSpecialArgs = { inherit ax; };
           modules = [
             nix-index-database.homeModules.nix-index
             ./home.nix

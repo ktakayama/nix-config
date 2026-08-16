@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, ax, ... }:
 #{ config, pkgs, ... }:
 
 {
@@ -61,6 +61,9 @@
     # nix-search-tv print | fzf --preview 'nix-search-tv preview {}' --scheme history
     # https://search.nixos.org/packages
     nix-search-tv
+
+    # github:yusukebe/ax
+    ax.packages.${pkgs.system}.default
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
