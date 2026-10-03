@@ -56,7 +56,7 @@
             entry = "${checkPkgs.gitleaks}/bin/gitleaks git --pre-commit --redact --staged --verbose";
             pass_filenames = false;
           };
-          nixfmt-rfc-style.enable = true;
+          nixfmt.enable = true;
         };
       };
 
