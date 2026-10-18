@@ -50,12 +50,7 @@
       pre-commit-check = git-hooks-nix.lib.${darwinSystem}.run {
         src = ./.;
         hooks = {
-          gitleaks = {
-            enable = true;
-            name = "gitleaks";
-            entry = "${checkPkgs.gitleaks}/bin/gitleaks git --pre-commit --redact --staged --verbose";
-            pass_filenames = false;
-          };
+          gitleaks.enable = true;
           nixfmt.enable = true;
         };
       };
