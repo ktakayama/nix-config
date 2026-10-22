@@ -30,6 +30,12 @@
     reattach = true; # tmux内で必要
   };
 
+  # 問題のある認証局を除外
+  security.pki.caCertificateBlacklist = [
+    "Comodo AAA Services root"
+    "emSign ECC Root CA - G3"
+  ];
+
   # /etc/nix/nix.conf
   nix.settings = {
     experimental-features = [
