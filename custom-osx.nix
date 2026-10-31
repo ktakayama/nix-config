@@ -17,7 +17,7 @@ in
 
     # development
     swiftlint
-    pkgs-pinned.fvm # 4.0.5 固定
+    fvm
     rustup
     terraform-ls
 
