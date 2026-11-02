@@ -41,6 +41,7 @@
     gh
     git-secrets
     gitleaks
+    betterleaks
     ghq
     gnupg
     lefthook
