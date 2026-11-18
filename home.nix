@@ -65,6 +65,14 @@
 
     # github:yusukebe/ax
     ax.packages.${pkgs.system}.default
+
+    (git.overrideAttrs (old: rec {
+      version = "2.56.1";
+      src = pkgs.fetchurl {
+        url = "https://www.kernel.org/pub/software/scm/git/git-${version}.tar.xz";
+        hash = "sha256-8LC/iSZLm9LhxkA2PnUpZDmJ2nYoFgBHPFB0XNNKYH8=";
+      };
+    }))
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
